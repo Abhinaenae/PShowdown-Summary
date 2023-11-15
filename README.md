@@ -1,5 +1,6 @@
 # PShowdown-Summary
-This is a website that provides a summary of my experiences on Pokemon Showdown, which was deployed with Terraform using Amazon S3 Buckets
+This is a website that provides a summary of my experiences on Pokemon Showdown, which was deployed with Terraform using Amazon S3 Buckets.
+
 Here is a link to the website: [Click here](http://abhiwebproject.s3-website-us-east-1.amazonaws.com/index.html)
 
 ### What is Pokemon Showdown?
