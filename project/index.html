@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokémon Showdown Statistics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* CSS for desktop */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffefd5;
+      color: #6b4226;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background-color: #d2691e;
+      color: #fff;
+      padding: 20px;
+    }
+
+    #profile-picture {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: 20px;
+      border: 3px solid #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    #stats {
+      margin-top: 20px;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .stats-box {
+      width: 30%;
+      padding: 10px;
+      background-color: #a0522d;
+      border-radius: 5px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .stats-box:hover {
+      transform: scale(1.05);
+    }
+
+    .team-links {
+      margin-top: 30px;
+    }
+
+    .team-links ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .team-links li {
+      margin: 10px;
+    }
+
+    .team-link {
+      padding: 10px 20px;
+      background-color: #a0522d;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .team-link:hover {
+      background-color: #8b4513;
+    }
+
+    .team-link i {
+      margin-right: 10px;
+    }
+
+    /* Social Media Links */
+    .social-links {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-links li {
+      margin: 0 10px;
+    }
+
+    .social-links a {
+      color: #d2691e;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #a0522d;
+    }
+
+    /* CSS for mobile */
+    @media only screen and (max-width: 600px) {
+      #profile-picture {
+        width: 120px;
+        height: 120px;
+        margin-top: 10px;
+      }
+
+      .stats-box {
+        width: 80%;
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My Pokémon Showdown Summary</h1>
+    <img src="pfp.jpg" alt="Profile Picture" id="profile-picture">
+  </header>
+
+  <div class="player-summary">
+    <h2>Player Bio</h2>
+    <p>Hey, I'm Abhi! I love playing Pokémon Showdown and specialize in primarily hyper-offense teams. My favorite Pokémon is Darmanitan. I've been involved in competitive battling for about 7 years and won a couple tournaments. Feel free to connect with me on social media!</p>
+    <ul class="social-links">
+      <li><a href="https://discordapp.com/users/422839085930119180"><i class="fab fa-discord"></i> Discord</a></li>
+      <li><a href="https://www.instagram.com/spicy_pani_puri/"><i class="fab fa-instagram"></i> Instagram</a></li>
+      <!-- Add more social media links as needed -->
+    </ul>
+  </div>
+
+  <div id="stats">
+    <h2>Statistics</h2>
+    <div class="stats-container">
+      <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Chart.js script with your statistics data
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Wins', 'Losses'],
+        datasets: [{
+          label: 'Win/Loss Statistics',
+          data: [1426, 169], // Replace with your actual statistics data
+          backgroundColor: [
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(255, 99, 132, 0.5)'
+          ],
+          borderColor: [
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 99, 132, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+  <div class="team-links">
+    <h2>Teams</h2>
+    <ul>
+      <li>
+        <a href="https://pokepast.es/f47ad27e02c67f67" class="team-link" target="_blank">
+          <i class="fas fa-spider"></i> Webs, OU
+        </a>
+      </li>
+      <li>
+        <a href="https://pokepast.es/0061dd24cc052615" class="team-link" target="_blank">
+          <i class="fas fa-sun"></i> Sun, Ubers
+        </a>
+      </li>
+      <li>
+        <a href="https://pokepast.es/fd9c0691b" class="team-link" target="_blank">
+          <i class="fas fa-sun"></i> Sun, Ubers
+        </a>
+      <li>
+        <a href="https://pokepast.es/5b675c072e47b206" class="team-link" target="_blank">
+          <i class="fas fa-water"></i> Water Mono
+        </a>
